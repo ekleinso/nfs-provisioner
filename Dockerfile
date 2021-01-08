@@ -38,6 +38,8 @@ RUN mkdir -p /ganesha-extra \
 FROM registry.fedoraproject.org/fedora-minimal:30 AS run
 RUN microdnf install -y libblkid userspace-rcu dbus-x11 rpcbind hostname nfs-utils xfsprogs jemalloc libnfsidmap && microdnf clean all
 
+ARG binary=./bin/nfs-provisioner
+
 RUN mkdir -p /var/run/dbus \
     && mkdir -p /export
 
